@@ -1,0 +1,211 @@
+<section id="services">
+    <div class="container mt-10">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Graphics/Branding</h2>
+                <div class="row">
+                    <div class="col-md-9 justify-content-start">
+                        <p>
+                            Marketing and communication design on website identifies what works for
+                            it's target market. Our design professionals are upto date with latest 
+                            technologies
+                        </p>
+                    </div>
+                </div>
+                <h2>Logo/Brand Identity</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="package silver">
+                            <div class="package-inner">
+                                <div class="package-inner-items">
+                                    <ul>
+                                        <li>Logo Designs +</li>
+                                        <li>4 Logo Files</li>
+                                        <li><strong>N 5,000</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="package gold">
+                            <div class="package-inner">
+                                <div class="package-inner-items">
+                                    <ul>
+                                        <li>Logo Designs +</li>
+                                        <li>4 Logo Files +</li>
+                                        <li>Source Files</li>
+                                        <li><strong>N 10,000</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="package diamond">
+                            <div class="package-inner">
+                                <div class="package-inner-items">
+                                    <ul>
+                                        <li>Logo Designs +</li>
+                                        <li>4 Logo Files +</li>
+                                        <li>Source Files +</li>
+                                        <li>Animation +</li>
+                                        <li>Brand Identity</li>
+                                        <li><strong>N 50,000</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2>Adverts Design</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="package silver">
+                            <div class="package-inner">
+                                <div class="package-inner-items">
+                                    <ul>
+                                        <li>Single Sided +</li>
+                                        <li>Mockup +</li>
+                                        <li>Printable File</li>
+                                        <li><strong>N 5,000</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="package gold">
+                            <div class="package-inner">
+                                <div class="package-inner-items">
+                                    <ul>
+                                        <li>Double Sided +</li>
+                                        <li>Printable File</li>
+                                        <li><strong>N 8,000</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="package diamond">
+                            <div class="package-inner">
+                                <div class="package-inner-items">
+                                    <ul>
+                                        <li>Double Sided +</li>
+                                        <li>Mockup +</li>
+                                        <li>Printable File</li>
+                                        <li><strong>N 10,000</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2>Product Photography and Design</h2>
+                <div class="row">
+                        <div class="col-md-4">
+                            <div class="package silver">
+                                <div class="package-inner">
+                                    <div class="package-inner-items">
+                                        <ul>
+                                            <li>Product Design +</li>
+                                            <li>Mockup For</li>
+                                            <li>5 Products</li>
+                                            <li><strong>N 30,000</strong></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="package gold">
+                                <div class="package-inner">
+                                    <div class="package-inner-items">
+                                        <ul>
+                                            <li>Product Design +</li>
+                                            <li>Mockup For</li>
+                                            <li>6 - 10 Products</li>
+                                            <li><strong>N 50,000</strong></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="package diamond">
+                                <div class="package-inner">
+                                    <div class="package-inner-items">
+                                        <ul>
+                                            <li>Photography +</li>
+                                            <li>Product Design +</li>
+                                            <li>Mockup For</li>
+                                            <li>10 -20 Products</li>
+                                            <li><strong>N 200,000</strong></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center">Package Purchase</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="#">
+
+                            <div class="form-group">
+                                <label for="">Choose Work</label>
+                                <select (change)="packages($event.target.value)" name="" class="form-control" id="">
+                                    <option value="">Select service</option>
+                                    <option *ngFor="let work of works" [value]="work.id" [innerHTML]="work.name"></option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Choose a Package</label>
+                                <select (change)="additionalFeatures($event.target.value)" name="" class="form-control" id="">
+                                    <option value="">Select Package</option>
+                                    <option *ngFor="let list of lists" [value]="list.id" [innerHTML]="list.name"></option>
+                                </select>
+                            </div>
+                            <div *ngIf="features">
+                                <p>Select additional development features</p>
+                                <div *ngFor="let addition of additions" class="form-group">
+                                    <label for="">
+                                        <input type="checkbox" class="form-check-inline" (click)="getAddedValue($event.target)"  [value]="addition.amount" id="" >{{ addition.name + ': ' }} <strong>N {{ addition.amount }}</strong>
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <h3>Total: &nbsp;&nbsp;&nbsp;N {{ total }}</h3>
+                    </div>
+                </div>
+                <div class="py-4 ">
+                    <a href="#purchase" data-toggle="modal" class="btn btn-primary mw-auto">Purchase This Services</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-services 
+    (selectedDetails)="onChangeDetails($event)"
+    [total]="total" 
+    [details]="details"
+    [features]="features"
+    [list]="list"
+    [selected]="selected"
+    [selectedDisplay]="selectedDisplay"
+    [additionals]="additionals"
+    [messages]="messages"
+    [message]="message"
+    [paystack]="paystack"
+    [button]="button"
+    [transactionRef]="transactionRef"
+    [email]="email"
+    [amount]="amount"
+    ></app-services>
+</section>

@@ -1,0 +1,44 @@
+    <!-- Request Quote -->
+    <section id="request">
+        <div class="container">
+            <div class="row  justify-content-center">
+                <div class="col-md-6 col-lg-6">
+                    <div class="form-container">
+                        <div *ngIf="status" class="alert alert-success" [innerHTML]="orderStatus"></div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="text-center">Inquire Package</h3>
+                            </div>
+                            <div class="card-body">
+                                <form [formGroup]="form" (ngSubmit)="sendOrder()">
+                                    <div class="form-group">
+                                        <input type="text" formControlName="name" placeholder="Name" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                            <input type="email" formControlName="email" placeholder="Email" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                            <input type="text" formControlName="phone" placeholder="Phone Number" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                            <input type="text" formControlName="referral" placeholder="Referral Code" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Service</label>
+                                        <select formControlName="service" class="form-select" id="">
+                                            <option value="">Select service</option>
+                                            <option value="logo">Logo</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" formControlName="message" placeholder="Message" class="form-control">
+                                    </div>
+                                    <button class="btn btn-primary inquire">Request Quote</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

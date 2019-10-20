@@ -1,0 +1,114 @@
+<section id="services">
+    <div class="container mt-10">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Networking</h2>
+                <div class="row">
+                    <div class="col-md-9 justify-content-start">
+                        <p>
+                            Marketing and communication design on website identifies what works for
+                            it's target market. Our design professionals are upto date with latest 
+                            technologies
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-4">
+                            <div class="package silver">
+                                <div class="package-inner">
+                                    <div class="package-inner-items">
+                                        <ul>
+                                            <li>Cribbing of Cables +</li>
+                                            <li>Connection For</li>
+                                            <li>10 - 50 Computers</li>
+                                            <li><strong>N 50,000</strong></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="package gold">
+                                <div class="package-inner">
+                                    <div class="package-inner-items">
+                                        <ul>
+                                            <li>Cribbing of Cables +</li>
+                                            <li>Connection For</li>
+                                            <li>50 - 100 Computers +</li>
+                                            <li>Printer Sharing</li>
+                                            <li><strong>N 120,000</strong></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="package diamond">
+                                <div class="package-inner">
+                                    <div class="package-inner-items">
+                                        <ul>
+                                            <li>Cribbing of Cables +</li>
+                                            <li>Connection For</li>
+                                            <li>100 - 500 Computers +</li>
+                                            <li>Printer Sharing +</li>
+                                            <li>Scanner Sharing</li>
+                                            <li><strong>N 450,000</strong></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center">Package Purchase</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="#">
+                            <div class="form-group">
+                                <label for="">Choose a Package</label>
+                                <select  (change)="additionalFeatures($event.target.value)"  class="form-control" id="">
+                                    <option value="" selected>Select Package</option>
+                                    <option *ngFor="let list of lists" [ngValue]="list.name" [value]="list.id" [innerHTML]="list.name"></option>
+                                </select>
+                            </div>
+                            <div *ngIf="features">
+                                <p>Select additional development features</p>
+                                <div *ngFor="let addition of additions" class="form-group">
+                                    <label for="">
+                                        <input type="checkbox" class="form-check-inline" (click)="getAddedValue($event.target)"  [value]="addition.amount" id="" >{{ addition.name + ': ' }} <strong>N {{ addition.amount }}</strong>
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <h3>Total: &nbsp;&nbsp;&nbsp;N {{ total }}</h3>
+                    </div>
+                </div>
+                <div class="py-4 ">
+                    <a href="#purchase" data-toggle="modal" class="btn btn-primary mw-auto">Purchase This Services</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-services 
+    (selectedDetails)="onChangeDetails($event)"
+    [total]="total" 
+    [details]="details"
+    [features]="features"
+    [list]="list"
+    [selected]="selected"
+    [selectedDisplay]="selectedDisplay"
+    [additionals]="additionals"
+    [messages]="messages"
+    [message]="message"
+    [paystack]="paystack"
+    [button]="button"
+    [transactionRef]="transactionRef"
+    [email]="email"
+    [amount]="amount"
+    ></app-services>
+</section>

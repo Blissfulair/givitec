@@ -1,0 +1,133 @@
+.mt-10{
+    padding-top: 7.5rem
+}
+.mw-auto{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%)
+}
+.form-control{
+    width: 90%;
+    border-radius: 10px;
+}
+.card-footer{
+    background-color: #32cbe4;
+}
+.card-footer h3{
+    color: #ffffff;
+    font-size: 1.7rem;
+}
+.package{
+    margin-top: 15px;
+    width: 100%;
+    min-height: 100px;
+    position: relative;
+}
+.package-inner{
+    width: 75%;
+    min-height: 300px;
+    position: relative;
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-left-radius: 70px;
+    border: 1px solid #ded9d9;
+    background-color: #f6f4f4;
+}
+.silver::before{
+    position: absolute;
+    content: "";
+    top: -5px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 100;
+    // background: linear-gradient(270deg, #f1421b 0%, #f6ab52 100%);
+    // border-radius: 0 100px 150px 0;
+     background: url(../../../assets/Silver.svg) no-repeat bottom center/cover;
+}
+.gold::before{
+    position: absolute;
+    content: "";
+    top: -5px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 100;
+    // background: linear-gradient(270deg, #f1421b 0%, #f6ab52 100%);
+    // border-radius: 0 100px 150px 0;
+     background: url(../../../assets/Gold.svg) no-repeat bottom center/cover;
+}
+.diamond::before{
+    position: absolute;
+    content: "";
+    top: -5px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 100;
+    // background: linear-gradient(270deg, #f1421b 0%, #f6ab52 100%);
+    // border-radius: 0 100px 150px 0;
+     background: url(../../../assets/Diamond.svg) no-repeat bottom center/cover;
+}
+.package-inner-items{
+    margin-top: 90px;
+    overflow: auto
+}
+.package-inner li{
+    font-size: 0.9rem;
+    white-space: nowrap;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+}
+
+.package-inner .package-inner-items ul li:last-child{
+    padding-top: 20px;
+    padding-bottom: 35px;
+}
+.package-inner .package-inner-items ul li:last-child::after{
+ position: absolute;
+ top: 8px;
+ left: 50%;
+ transform: translateX(-50%);
+ display: block;
+ width: 80%;
+ height: 4px;
+ content: "";
+}
+.silver .package-inner .package-inner-items ul li:last-child::after{
+    background: linear-gradient(270deg, #fa6041 0%, #f8ae0d 100%);
+}
+.gold .package-inner .package-inner-items ul li:last-child::after{
+    background: linear-gradient(270deg, #22b573 0%, #7fdab1 100%);
+}
+.diamond .package-inner .package-inner-items ul li:last-child::after{
+    background: linear-gradient(270deg, #4c39a4 0%, #7362cc 100%);
+}
+@media (min-width: 768px) and (max-width: 1024px){
+    .package::before{
+        top: -15px;
+    }
+    .package-inner li{
+        font-size: 0.74rem;
+    }
+    // .package{
+    //     min-height: 250px;
+    // }
+}
+@media (max-width: 767px){
+    .package-inner li{
+        font-size: 1.3rem;
+    }
+    .package{
+        margin: 19px 0;
+    }
+    .package::before{
+        height: 170px;
+        top: -30px;
+    }
+    .package-inner-items ul{
+        margin-top: 35px;
+    }
+}

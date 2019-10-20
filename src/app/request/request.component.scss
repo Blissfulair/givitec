@@ -1,0 +1,73 @@
+.form-container{
+    padding: 200px 0;
+  }
+  .card-header{
+    background-color: #095363;
+  }
+  .card{
+    padding-bottom: 30px;
+  }
+  .card-header h3{
+    color: #fff;
+    font-size: 22px;
+    line-height: 150%;
+  }
+  .form-control {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px 30px;
+    font-size: 19px;
+    padding-left: 0;
+    border: none;
+    border-radius:0;
+    border-bottom: 2px solid #03add3;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  
+  .form-control:focus {
+    border: 1px solid #0433AD;
+    outline: none;
+    box-shadow: none;
+  }
+  .form-control:focus{
+    border: none;
+    border-bottom: 1px solid #03add3;
+  }
+  .form-select {
+    width: 60%;
+    margin-bottom: 20px;
+    display: block;
+    padding: 15px 30px;
+    font-size: 16px;
+    border-radius: 30px;
+    background: #fff;
+    border: 2px solid #03add3;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .form-select:focus{
+      border:none;
+      border: 1px solid #03add3;
+  }
+  .form-select:focus-within{
+      border:none;
+  }
+  .inquire{
+    position: absolute;
+    bottom: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #095363;
+    border-color: #095363;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    padding: 10px 13%;
+    white-space:nowrap
+  }
+  .inquire:hover{
+    background-color: rgba(16, 19, 175, 0.9);
+    border-color: rgba(0, 0, 0, 0.20);
+  }

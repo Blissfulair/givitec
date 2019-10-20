@@ -1,0 +1,171 @@
+<section id="services">
+    <div class="container mt-10">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>CBT</h2>
+                <div class="row">
+                    <div class="col-md-9 justify-content-start">
+                        <p>
+                            Marketing and communication design on website identifies what works for
+                            it's target market. Our design professionals are upto date with latest 
+                            technologies
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="package silver">
+                            <div class="package-inner">
+                                <div class="package-inner-items">
+                                    <ul>
+                                        <li>Registration</li>
+                                        <li>N 700</li>
+                                        <li><strong>N 700</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="package gold">
+                            <div class="package-inner">
+                                <div class="package-inner-items">
+                                    <ul>
+                                        <li>Registration</li>
+                                        <li>N 700</li>
+                                        <li>Givitec Mock Exam</li>
+                                        <li>N 1,000</li>
+                                        <li><strong>N 1,700</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="package diamond">
+                            <div class="package-inner">
+                                <div class="package-inner-items">
+                                    <ul>
+                                        <li>JAMB Vending Pin</li>
+                                        <li>N 4,000</li>
+                                        <li>Registration</li>
+                                        <li>N 700</li>
+                                        <li>Givitec Mock Exam</li>
+                                        <li>N 1,000</li>
+                                        <li><strong>N 5,700</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center">Package Purchase</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="#">
+                            <div class="form-group">
+                                <label for="">Choose a Package</label>
+                                <select (click)="onChangeDetails($event)" (change)="additionalFeatures($event.target.value)"  class="form-control" id="">
+                                    <option value="" selected>Select Package</option>
+                                    <option *ngFor="let list of lists" [ngValue]="list.name" [value]="list.id" [innerHTML]="list.name"></option>
+                                </select>
+                            </div>
+                            <div *ngIf="features">
+                                <p>Select additional development features</p>
+                                <div *ngFor="let addition of additions" class="form-group">
+                                    <label for="">
+                                        <input type="checkbox" class="form-check-inline" (click)="getAddedValue($event.target)"  [value]="addition.amount" id="" >{{ addition.name + ': ' }} <strong>N {{ addition.amount }}</strong>
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <h3>Total: &nbsp;&nbsp;&nbsp;N {{ total }}</h3>
+                    </div>
+                </div>
+                <div class="py-4 ">
+                    <a href="#purchase" data-toggle="modal" class="btn btn-primary mw-auto">Purchase This Services</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Modal -->
+<!-- <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="purchase" class="modal fade">
+        <div class="modal-dialog">
+            <form *ngIf="details" [formGroup]="form" (ngSubmit)="sendTransaction()">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <h3 [innerHTML]="selectedDisplay + total"></h3>
+    
+                        <div class="form-group">
+                            <label for="">Full Name</label>
+                            <input type="text" formControlName="name" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Email</label>
+                            <input type="email" formControlName="email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Phone Number</label>
+                            <input type="text" formControlName="phone" class="form-control">
+                        </div>
+                        <input type="hidden" formControlName="amount" [value]="total">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger" >Proceed</button>
+                        <button data-dismiss="modal" class="btn btn-info" (click)="onCancel()" type="button">Cancel</button>
+                    </div>
+                </div>
+            </form>
+    
+            <div  *ngIf="paystack" class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-success" [innerHTML]="message" *ngIf="messages"></div>
+                    <p>You are about to make payment for {{selectedDisplay + total}}</p>
+                </div>
+                <div class="modal-footer">
+                    <angular4-paystack *ngIf="button"
+                        [key]="key"
+                        [email]="email"
+                        [amount]="amount"
+                        [ref]="transactionRef"
+                        [channels]="['card']"
+                        [class]="'btn btn-danger'"
+                        (close)="paymentCancel()"
+                        (callback)="paymentDone($event)"
+                        >Proceed Payment</angular4-paystack>
+                    <button data-dismiss="modal" class="btn btn-info" type="button">Cancel</button>
+                </div>
+            </div>
+        </div>
+</div> -->
+<!-- modal -->
+<app-services 
+(selectedDetails)="onChangeDetails($event)"
+[total]="total" 
+[details]="details"
+[features]="features"
+[list]="list"
+[selected]="selected"
+[selectedDisplay]="selectedDisplay"
+[additionals]="additionals"
+[messages]="messages"
+[message]="message"
+[paystack]="paystack"
+[button]="button"
+[transactionRef]="transactionRef"
+[email]="email"
+[amount]="amount"
+></app-services>
+</section>
