@@ -14,6 +14,7 @@ export class ServicesComponent implements OnInit {
   @Input() features:boolean;
   @Input() total:number;
   @Input() selected:number;
+  @Input() add;
   @Input() selectedDisplay:string;
   @Input() additionals:any;
   @Input() messages:boolean;
@@ -38,11 +39,19 @@ export class ServicesComponent implements OnInit {
 
   //To save purchase service details
   sendTransaction(){
+    let addi
+    if(this.add.length>1){
+      var last = this.add.pop();
+       addi = this.add.join(', ') + " and "+last + " services";
+    }else{
+      addi = this.add.join(', ')+ " service";
+    }
     this.form.patchValue({
       'amount':this.total, 
       'service': this.list, 
       'package': this.selected,
-      'additionals': JSON.stringify(this.additionals)
+      'additionals': JSON.stringify(this.additionals),
+      'add':addi
     })
     this.trans.makeTransaction(this.form.value).subscribe((data)=>{
       this.form.reset();

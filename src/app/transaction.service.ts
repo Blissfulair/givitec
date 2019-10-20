@@ -18,7 +18,8 @@ export class TransactionService {
       package:[''],
       service:[''],
       additionals:[null],
-      phone:['']
+      phone:[''],
+      add:['']
     });
   }
   makeTransaction(body){

@@ -12,7 +12,7 @@ export class MobileComponent implements OnInit {
   list:number;
   features=false;
   additions:[];
-  add:boolean = false;
+  add=[];
   total:number= 0.00;
   selected:number;
   selectedDisplay ='';
@@ -79,17 +79,20 @@ export class MobileComponent implements OnInit {
 
   //Add additional features value
   getAddedValue(e){
-    let test =this.additions.filter((data:[])=>data['name'].includes(e.parentNode.innerText.replace(':', '').split(' ')[0]))
+    let inner = e.parentNode.innerText;
+    let test =this.additions.filter((data:[])=>data['name'].includes(inner.replace(':', '').split(' ')[0]))
       if(e.checked)
      {
       this.total += Number(e.value);
       this.additionals.push(test[0]['id']); 
+      this.add.push(inner);
      }
       else
       {
         this.total -= Number(e.value);
 
-        this.additionals.splice(this.additionals.indexOf(test[0]['id']), 1)
+        this.additionals.splice(this.additionals.indexOf(test[0]['id']), 1);
+        this.add.splice(this.add.indexOf(inner),1);
       }
   }
 }
