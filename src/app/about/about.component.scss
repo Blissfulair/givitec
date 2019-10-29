@@ -1,7 +1,8 @@
+@import '../../variables/variables';
 .banner{
     height: 400px;
     width: 100%;
-    background: url(../../assets/banner.svg) no-repeat bottom center/cover;
+    background: url(../../assets/banner.jpg) no-repeat bottom center/cover;
 }
 .banner h2{
     // margin-top: 200px;
@@ -16,8 +17,7 @@
     width: 80%;
     height: 500px;
     background-color: #fff;
-    border: 1px solid #888888;
-    box-shadow: 0px 0px 5px 5px #888888;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.17);
     position: relative;
     top: -130px;
     left: 50%;
@@ -45,7 +45,7 @@
 .img{
     height: 100%;
     width: 100%;
-    background: url(../../assets/aboutpic.svg) no-repeat top center/cover;
+    background: url(../../assets/director.jpg) no-repeat top center/cover;
 }
 .givitec-family{
     height: 320px;
@@ -65,6 +65,9 @@
     padding-top: 150px;
     color: #707070;
     z-index: 67;
+    font-size: 36px;
+    font-weight: 700;
+    opacity: 1;
 }
 .team{
     height: auto;
@@ -104,4 +107,15 @@
     // .banner h2 {
     //     top: 7%;
     // }
+
 }
+.team h5{
+    color: $textcolor;
+    font-size: 26px;
+    padding-top: 15px;
+}
+.team h3{
+    font-size: 14px;
+    padding-bottom: 20px
+}
+

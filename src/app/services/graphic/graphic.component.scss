@@ -1,4 +1,3 @@
-
 .mt-10{
     padding-top: 7.5rem
 }
@@ -86,7 +85,6 @@
     font-size: 1.2rem;
     font-weight: 700;
 }
-
 .package-inner .package-inner-items ul li:last-child{
     padding-top: 20px;
     padding-bottom: 35px;
@@ -121,6 +119,9 @@
     //     min-height: 250px;
     // }
 }
+.package-inner  h2 {
+    display: none;
+}
 @media (max-width: 767px){
     .package-inner li{
         font-size: 1.3rem;
@@ -134,5 +135,26 @@
     }
     .package-inner-items ul{
         margin-top: 35px;
+    }
+    .silver::before, .gold::before, .diamond::before{
+        background: none;
+  
+    }
+   .silver .package-inner h2, .gold .package-inner h2, .diamond .package-inner h2{
+        display: flex;
+        justify-content: center;
+        margin-top: 11%;
+    }
+    .silver .package-inner h2{
+        color: #f87c46;
+    }
+    .gold .package-inner h2{
+        color: #22b573;
+    }
+    .diamond .package-inner h2{
+        color: #4c39a4;
+    }
+    .package-inner-items{
+        margin-top: 0;
     }
 }

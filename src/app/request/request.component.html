@@ -1,5 +1,6 @@
     <!-- Request Quote -->
-    <section id="request">
+    <section id="request" class="givitec-slider requests" style="background-image: url('../../../assets/home.png')">
+        <div class="jamb-overlay"></div>
         <div class="container">
             <div class="row  justify-content-center">
                 <div class="col-md-6 col-lg-6">
@@ -13,27 +14,38 @@
                                 <form [formGroup]="form" (ngSubmit)="sendOrder()">
                                     <div class="form-group">
                                         <input type="text" formControlName="name" placeholder="Name" class="form-control">
+                                        <p *ngIf="form.controls['name'].invalid && (form.controls['name'].touched || form.controls['name'].dirty)" class="text-danger">Name is required</p>
                                     </div>
                                     <div class="form-group">
                                             <input type="email" formControlName="email" placeholder="Email" class="form-control">
+                                            <p *ngIf="form.controls['email'].invalid && (form.controls['email'].touched || form.controls['email'].dirty)" class="text-danger">Valid email is required</p>
                                     </div>
                                     <div class="form-group">
                                             <input type="text" formControlName="phone" placeholder="Phone Number" class="form-control">
+                                            <p *ngIf="form.controls['phone'].invalid && (form.controls['phone'].touched || form.controls['phone'].dirty)" class="text-danger">A valid phone number is required</p>
                                     </div>
                                     <div class="form-group">
-                                            <input type="text" formControlName="referral" placeholder="Referral Code" class="form-control">
+                                            <input type="text" formControlName="referral" placeholder="Referral Code(Optional)" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label for="">Service</label>
                                         <select formControlName="service" class="form-select" id="">
-                                            <option value="">Select service</option>
-                                            <option value="logo">Logo</option>
+                                            <option selected value="">Select service</option>
+                                            <option value="logo design">Logo Design</option>
+                                            <option value="adverts design">Adverts Design</option>
+                                            <option value="Product photography and design">Product Photography and Design</option>
+                                            <option value="Web Design">Web Design</option>
+                                            <option value="Mobile App Design">Mobile App Design</option>
+                                            <option value="Networking">Networking</option>
+                                            <option value="CBT">CBT</option>
                                         </select>
+                                        <p *ngIf="form.controls['service'].invalid && (form.controls['service'].touched || form.controls['service'].dirty)" class="text-danger">Service is required</p>
                                     </div>
                                     <div class="form-group">
                                         <input type="text" formControlName="message" placeholder="Message" class="form-control">
+                                        <p *ngIf="form.controls['message'].invalid && (form.controls['message'].touched || form.controls['message'].dirty)" class="text-danger">Message is required</p>
                                     </div>
-                                    <button class="btn btn-primary inquire">Request Quote</button>
+                                    <button [disabled]="!form.valid" class="btn btn-primary inquire">Request Quote</button>
                                 </form>
                             </div>
                         </div>

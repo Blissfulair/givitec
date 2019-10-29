@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from 'src/app/service.service';
 import { TransactionService } from 'src/app/transaction.service';
+import { of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-jamb',
@@ -9,49 +11,45 @@ import { TransactionService } from 'src/app/transaction.service';
 })
 export class JambComponent implements OnInit {
   form;
-  reg_no:string
-  lastname:string
-  firstname:string
-  middle_name:string
-  dob:Date
-  lga:string
-  state:string
-  home_town:string
-  address:string
-  email:string
-  phone:string
-  password:string
-  nin:string
-  profile_code:string
-  first_choice_inst:string
-  first_choice_course:string
-  second_choice_inst:string
-  second_choice_course:string
-  third_choice_inst:string
-  third_choice_course:string
+  f;
 
 
-
+pay = false;
+submit = true;
+status = false;
+email:string;
+phone:string;
+name:string;
+total:number
+saved = false;
   selectedDisplay ='';
+  details = true;
   messages = false;
-  paystack = true;
+  paystack = false;
   button = true;
   amount:number = 4700;
   key = this.trans.key;
-  transactionRef:string=Math.random().toString().substr(2,12);
+  transactionRef:string;
   constructor(private _service: ServiceService, private trans: TransactionService) { }
 
   ngOnInit() {
     this.form = this._service.form;
+    this.f = this.trans.form;
+
   }
     //To save purchase service details
     sendTransaction(){
       const form = {
         'amount':this.amount, 
-        'service': 4, 
+        'service': 1, 
         'package': 1,
+        'name': this.name,
+        'email':this.email,
+        'phone': this.phone,
+        'additionals': ''
       }
       this.trans.makeTransaction(form).subscribe((data)=>{
+        this.transactionRef = data['transaction']['ref'];
         this.amount *=100;
         this.paystack = true;
       })
@@ -61,6 +59,7 @@ export class JambComponent implements OnInit {
     this.messages = true;
     this.button = false;
     this.paystack= true;
+    this.saved = false;
 
 
     const body = {
@@ -70,39 +69,30 @@ export class JambComponent implements OnInit {
       'message':e.message
     };
     this.trans.savePaystack(body).subscribe(data=>{
-        
+        this.submit = true;
+        this.pay = false;
       });
       this.messages = true;
       this.paystack = false;
      
   }
   onSubmit(){
-    const body = {
-      'reg_no':this.reg_no,
-      'lastname':this.lastname,
-      'firstname':this.firstname,
-      'middle_name':this.middle_name,
-      'dob':this.dob,
-      'lga':this.lga,
-      'state':this.state,
-      'home_town':this.home_town,
-      'address':this.address,
-      'email':this.email,
-      'phone':this.phone,
-      'password':this.password,
-      'nin':this.nin,
-      'profile_code':this.profile_code,
-      'first_choice_inst':this.first_choice_inst,
-      'first_choice_course':this.first_choice_course,
-      'second_choice_inst':this.second_choice_inst,
-      'second_choice_course':this.second_choice_course,
-      'third_choice_inst':this.third_choice_inst,
-      'third_choice_course':this.third_choice_course
-    }
-    this._service.saveRegistrationData(body).subscribe((data)=>{
+    this.status = true;
+    this._service.saveRegistrationData(this.form.value).subscribe((data)=>{
+      this.name = data['name'];
+      this.email = data['email'];
+      this.phone = data['phone'];
       this.sendTransaction();
+        this.pay = true;
+      of('').pipe(delay(1000 )).subscribe(s => { 
+        this.status= false;
+        this.saved = true;
+        this.submit = false;
+        this.form.reset();
+       });
+
     })
-    this.form.reset();
+    
   }
   paymentCancel(){
     console.log('cancelled')

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../order.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-request',
@@ -13,12 +13,12 @@ export class RequestComponent implements OnInit {
   status = false;
   constructor(private order : OrderService, private fb:FormBuilder) {
     this.form = this.fb.group({
-      name:[''],
-      email:[''],
+      name:['', Validators.required],
+      email:['', Validators.email],
       referral:[''],
-      phone:[''],
-      message:[''],
-      service:['']
+      phone:['', Validators.pattern('^[0]+[7-9]+[0-1]+[0-9]{8}')],
+      message:['', Validators.required],
+      service:['', Validators.required]
     });
    }
 

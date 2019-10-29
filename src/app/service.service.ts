@@ -2,36 +2,36 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders  } from '@angular/common/http';
 import 'rxjs'; 
 import { Observable } from 'rxjs';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceService {
   form : FormGroup;
-  public url = 'http://127.0.0.1:8000';
+  public url = 'https://www.givitec.com/app';
   constructor(private http : HttpClient, private fb : FormBuilder) {
     this.form = this.fb.group({
       reg_no:[''],
-      lastname:[''],
-      firstname:[''],
+      lastname:['', Validators.required],
+      firstname:['', Validators.required],
       middle_name:[''],
-      dob:[''],
-      lga:[''],
-      state:[''],
-      home_town:[''],
-      address:[''],
-      email:[''],
-      phone:[''],
-      password:[''],
-      nin:[''],
-      profile_code:[''],
-      first_choice_inst:[''],
-      first_choice_course:[''],
-      second_choice_inst:[''],
-      second_choice_course:[''],
-      third_choice_inst:[''],
-      third_choice_course:['']
+      dob:['', Validators.required],
+      lga:['', Validators.required],
+      state:['', Validators.required],
+      home_town:['', Validators.required],
+      address:['', Validators.required],
+      email:['', Validators.email],
+      phone:['', Validators.pattern('^[0]+[7-9]+[0-1]+[0-9]{8}')],
+      password:['', Validators.required],
+      nin:['', Validators.required],
+      profile_code:['', Validators.required],
+      first_choice_inst:['', Validators.required],
+      first_choice_course:['', Validators.required],
+      second_choice_inst:['', Validators.required],
+      second_choice_course:['', Validators.required],
+      third_choice_inst:['', Validators.required],
+      third_choice_course:['', Validators.required]
     })
   }
   saveRegistrationData(body){

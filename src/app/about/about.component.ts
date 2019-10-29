@@ -12,7 +12,6 @@ export class AboutComponent implements OnInit {
     nav: true, 
     auto: true,
     loop: true,
-    autoplay:true,
     autoPlaySpeed:5000,
     autoPlayTimeout:5000,
     navText: ['Prev', 'Next'],
@@ -26,11 +25,18 @@ export class AboutComponent implements OnInit {
         center: true
       },
       740: {
-        items: 3
+        items: 2.5,
+        center: true
       },
       940: {
-        items: 3.7
+        items: 3.5,
+        center: true
       }
+    },
+    animateOut: 'fadeOut',
+    afterMove: function (elem) {
+      var current = this.currentItem;
+      console.log(elem);
     }
    };
   constructor() { }

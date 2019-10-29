@@ -5,6 +5,7 @@
 .nav-tabs{
     border: none
 }
+
 .nav-tabs li a{
     margin: 0 30px;
     font-size: 18px;
@@ -26,6 +27,11 @@
 .tab-content{
     margin-top: 120px;
     margin-left: 1%;
+}
+
+.tab-content .active{
+    transform: translateX(0%);
+    transition: all 600ms ease-in
 }
 .tab-content ul li{
     font-size: 16px;
@@ -77,6 +83,7 @@
     left: 50%;
     transform: translate(-50%,-50%);
     color: $primaryBlue;
+    font-size: 51px;    
 }
 .about-us h2 strong{
     position: relative;
@@ -114,4 +121,36 @@
         transform: translate(-50%,-50%);
         color: #fff;
     }
+    .nav-tabs{
+        display: block;
+    }
+    .nav-tabs li{
+        margin: 10px 0;
+        text-align: center;
+    }
+    .career-nav{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .tab-content{
+        margin-top: 45px;
+    }
+}
+#box{
+    position: absolute;
+    height: 33px;
+    width: 33px;
+    right: 19%;
+    top: 7%;
+    background-color: $primaryBlue;
+}
+#box::after{
+    position: absolute;
+    top: -33%;
+    left: 49%;
+    content: '';
+    height: 33px;
+    width: 33px;
+    background-color: $footerBlue;
 }

@@ -9,9 +9,9 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 export class CareerComponent implements OnInit {
 
   constructor(config: NgbCarouselConfig) {  
-    config.interval = 5000; 
+    config.interval = 5000;
     config.showNavigationArrows= false; 
-    config.wrap = false;  
+    config.wrap = true;  
     config.keyboard = false;  
     config.pauseOnHover = false;  
   } 

@@ -54,7 +54,7 @@ const routes: Routes = [
     component:CareerComponent
   },
   {
-    path:'jamb-registration',
+    path:'utme',
     component:JambComponent
   }
 ];

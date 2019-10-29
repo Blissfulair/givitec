@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ServiceService } from 'src/app/service.service';
 import { Service } from 'src/app/service.interface';
 import { TransactionService } from 'src/app/transaction.service';
@@ -33,12 +33,12 @@ export class WebComponent implements OnInit {
 
 
   constructor(private service: ServiceService, private trans: TransactionService) {
- 
+    this.services();
    }
 
   ngOnInit() {
     this.form = this.trans.form
-    this.services();
+    
   }
 
   packages(){

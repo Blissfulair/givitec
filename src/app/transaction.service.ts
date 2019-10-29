@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -8,30 +8,30 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class TransactionService {
   form: FormGroup;
   request: FormGroup;
-  key = 'pk_test_4853e4d2022c36817f61914bc9e00117714d8e1a';
+  key = 'pk_live_04640accafed60dacf9e151f08c369316a7156fa';
   
   constructor(private http:HttpClient, private fb : FormBuilder) { 
     this.form = this.fb.group({
-      name:[''],
-      email:[''],
+      name:['', Validators.required],
+      email:['',  Validators.email],
       amount:[''],
       package:[''],
       service:[''],
       additionals:[null],
-      phone:[''],
+      phone:['', Validators.pattern('^[0]+[7-9]+[0-1]+[0-9]{8}')],
       add:['']
     });
   }
   makeTransaction(body){
     const headers = new HttpHeaders({'Content-Type':'application/json'});
-    return this.http.post('http://127.0.0.1:8000/api/transaction', body,{headers: headers})
+    return this.http.post('https://www.givitec.com/app/api/transaction', body,{headers: headers})
   }
   savePaystack(data){
     const headers = new HttpHeaders({'Content-Type':'application/json'});
-    return this.http.post('http://127.0.0.1:8000/api/paystack/transaction',data, {headers:headers});
+    return this.http.post('https://www.givitec.com/app/api/paystack/transaction',data, {headers:headers});
   }
   savePaystackRegistration(data){
     const headers = new HttpHeaders({'Content-Type':'application/json'});
-    return this.http.post('http://127.0.0.1:8000/api/paystack/registration',data, {headers:headers});
+    return this.http.post('https://www.givitec.com/app/api/paystack/registration',data, {headers:headers});
   }
 }

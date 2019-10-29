@@ -1,3 +1,45 @@
+@import '../../../variables/variables';
 .mt-10{
-    padding-top: 7.5rem
+    padding-top: 7.5rem;
+    padding-bottom: 5rem;
 }
+.givitec-slider{
+    background-size: cover;
+    background-position: left;
+    background-repeat: no-repeat;
+    transition: all 1000ms ease-in-out;
+    position: relative;
+}
+.container .row .col-md-8 h2, .container .row .col-md-8 p{
+    color: $primaryBlue;
+    text-align: center;
+}
+.modal-footer p{
+    color: #fff;
+    text-align: center;
+}
+.container .row .col-md-8 p{
+    font-size: 18px;
+}
+.alert-success{
+    background-color: #155724;
+    color:#fff;
+}
+.card{
+    background-color: rgba(0,0,0,0.2);
+    z-index: 200;
+    box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.2);
+    border:none;
+    
+}
+.card .card-footer p{
+    color:#fff !important;
+}
+.card-header h3{
+    color: #fff;
+}
+.form-control{
+    background-color: rgba(255,255,255,0.5); 
+    border-color: rgba(0,0,0,0.1);
+}
+

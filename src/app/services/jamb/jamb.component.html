@@ -1,5 +1,6 @@
 
-<section id="services" class="jamb">
+<section id="services" class="jamb givitec-slider" style="background-image: url('../../../assets/backgrp2.jpg')">
+        <div class="jamb-overlay"></div>
         <div class="container mt-10">
             <div class="row justify-content-center">
                 <div class="col-md-8">
@@ -10,75 +11,99 @@
                     <div class="row justify-content-center">
                         <div class="col-md-12">
                                 <div class="card">
+                                        <div *ngIf="status" class="spinner-overlay">
+                                                <p class="loader-spinner text-center"></p>
+                                            </div>
                                         <div class="card-header">
                                             <h3 class="text-center">Biodata</h3>
                                         </div>
 
                                         <div class="card-body">
-                                            <form >
+                                            <form [formGroup]="form" (ngSubmit)="onSubmit()" >
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="Reg Number" [(ngModel)]="reg_no" name="reg_no" class="form-control">
+                                                            <input type="text" placeholder="Reg Number(Optional)" formControlName="reg_no" name="reg_no" class="form-control">
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="Surname" [(ngModel)]="lastname" name="lastname" class="form-control">
+                                                            <input type="text" placeholder="Surname" formControlName="lastname" name="lastname" class="form-control">
+                                                            <p *ngIf="form.controls['lastname'].invalid && (form.controls['lastname'].touched || form.controls['lastname'].dirty)" class="text-danger">Surname is required</p>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="First Name" [(ngModel)]="firstname" name="firstname" class="form-control">
+                                                            <input type="text" placeholder="First Name" formControlName="firstname" name="firstname" class="form-control">
+                                                            <p *ngIf="form.controls['firstname'].invalid && (form.controls['firstname'].touched || form.controls['firstname'].dirty)" class="text-danger">First Name is required</p>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="Middle Name" [(ngModel)]="middle_name" name="middle_name" class="form-control">
+                                                            <input type="text" placeholder="Middle Name (Optional)" formControlName="middle_name" name="middle_name" class="form-control">
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="NIN" [(ngModel)]="nin" name="nin" class="form-control">
+                                                            <input type="text" placeholder="NIN" formControlName="nin" name="nin" class="form-control">
+                                                            <p *ngIf="form.controls['nin'].invalid && (form.controls['nin'].touched || form.controls['nin'].dirty)" class="text-danger">NIN is required</p>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="Profile Code" [(ngModel)]="profile_code" name="profile_code" class="form-control">
+                                                            <input type="text" placeholder="Profile Code" formControlName="profile_code" name="profile_code" class="form-control">
+                                                            <p *ngIf="form.controls['profile_code'].invalid && (form.controls['profile_code'].touched || form.controls['profile_code'].dirty)" class="text-danger">Profile Code is required</p>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="email" placeholder="Email" [(ngModel)]="email" name="email" class="form-control">
+                                                            <input type="email" placeholder="Email" formControlName="email" name="email" class="form-control">
+                                                            <p *ngIf="form.controls['email'].invalid && (form.controls['email'].touched || form.controls['email'].dirty)" class="text-danger">A valid is required</p>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="Phone Number" [(ngModel)]="phone" name="phone" class="form-control">
+                                                            <input type="text" placeholder="Phone Number" formControlName="phone" name="phone" class="form-control">
+                                                            <p *ngIf="form.controls['phone'].invalid && (form.controls['phone'].touched || form.controls['phone'].dirty)" class="text-danger">A valid phone number is required</p>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="State" [(ngModel)]="state" name="state" class="form-control">
+                                                            <input type="text" placeholder="State" formControlName="state" name="state" class="form-control">
+                                                            <p *ngIf="form.controls['state'].invalid && (form.controls['state'].touched || form.controls['state'].dirty)" class="text-danger">State is required</p>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="Local Government" [(ngModel)]="lga" name="lga" class="form-control">
+                                                            <input type="text" placeholder="Local Government" formControlName="lga" name="lga" class="form-control">
+                                                            <p *ngIf="form.controls['lga'].invalid && (form.controls['lga'].touched || form.controls['lga'].dirty)" class="text-danger">Local government area is required</p>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="Home Town" [(ngModel)]="home_town" name="home_town" class="form-control">
+                                                            <input type="text" placeholder="Home Town" formControlName="home_town" name="home_town" class="form-control">
+                                                            <p *ngIf="form.controls['home_town'].invalid && (form.controls['home_town'].touched || form.controls['home_town'].dirty)" class="text-danger">Home town is required</p>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="Address" [(ngModel)]="address" name="address" class="form-control">
+                                                            <input type="text" placeholder="Address" formControlName="address" name="address" class="form-control">
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="date" placeholder="Date of Birth" [(ngModel)]="dob" name="dob" class="form-control">
+                                                            <input type="date" placeholder="Date of Birth" formControlName="dob" name="dob" class="form-control">
+                                                            <p *ngIf="form.controls['dob'].invalid && (form.controls['dob'].touched || form.controls['dob'].dirty)" class="text-danger">Date of birth is required</p>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="password" placeholder="Password" [(ngModel)]="password" name="password" class="form-control">
+                                                            <input type="password" placeholder="Password" formControlName="password" name="password" class="form-control">
+                                                            <p *ngIf="form.controls['password'].invalid && (form.controls['password'].touched || form.controls['password'].dirty)" class="text-danger">Password is required</p>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="First Choice Institution" [(ngModel)]="first_choice_inst" name="first_choice_inst" class="form-control">
+                                                            <input type="text" placeholder="First Choice Institution" formControlName="first_choice_inst" name="first_choice_inst" class="form-control">
+                                                            <p *ngIf="form.controls['first_choice_inst'].invalid && (form.controls['first_choice_inst'].touched || form.controls['first_choice_inst'].dirty)" class="text-danger">First choice institution is required</p>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="First Choice Course" [(ngModel)]="first_choice_course" name="first_choice_course" class="form-control">
+                                                            <input type="text" placeholder="First Choice Course" formControlName="first_choice_course" name="first_choice_course" class="form-control">
+                                                            <p *ngIf="form.controls['first_choice_course'].invalid && (form.controls['first_choice_course'].touched || form.controls['first_choice_course'].dirty)" class="text-danger">First choice course is required</p>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="Second Choice Institution" [(ngModel)]="second_choice_inst" name="second_choice_inst" class="form-control">
+                                                            <input type="text" placeholder="Second Choice Institution" formControlName="second_choice_inst" name="second_choice_inst" class="form-control">
+                                                            <p *ngIf="form.controls['second_choice_inst'].invalid && (form.controls['second_choice_inst'].touched || form.controls['second_choice_inst'].dirty)" class="text-danger">Second choice institution is required</p>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="Second Choice Course" [(ngModel)]="second_choice_course" name="second_choice_course" class="form-control">
+                                                            <input type="text" placeholder="Second Choice Course" formControlName="second_choice_course" name="second_choice_course" class="form-control">
+                                                            <p *ngIf="form.controls['second_choice_course'].invalid && (form.controls['second_choice_course'].touched || form.controls['second_choice_course'].dirty)" class="text-danger">Second choice course is required</p>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="Third Choice Institution" [(ngModel)]="third_choice_inst" name="third_choice_inst" class="form-control">
+                                                            <input type="text" placeholder="Third Choice Institution" formControlName="third_choice_inst" name="third_choice_inst" class="form-control">
+                                                            <p *ngIf="form.controls['third_choice_inst'].invalid && (form.controls['third_choice_inst'].touched || form.controls['third_choice_inst'].dirty)" class="text-danger">Third choice institution is required</p>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="Third Choice Course" [(ngModel)]="third_choice_course" name="third_choice_course" class="form-control">
+                                                            <input type="text" placeholder="Third Choice Course" formControlName="third_choice_course" name="third_choice_course" class="form-control">
+                                                            <p *ngIf="form.controls['third_choice_course'].invalid && (form.controls['third_choice_course'].touched || form.controls['third_choice_course'].dirty)" class="text-danger">Third choice course is required</p>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <button *ngIf="submit" [disabled]="!form.valid" class="btn btn-primary">Submit form</button>
+                                                            <a href="#purchase" data-toggle="modal" *ngIf="pay" class="btn btn-primary">Pay Now</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -86,7 +111,7 @@
                                         </div>
                                     
                                         <div class="card-footer">
-                                            <a href="#purchase" data-toggle="modal" (click)="onSubmit()" class="btn btn-primary">Save</a>
+                                            <p *ngIf="saved" class="alert alert-success">Details successfully saved. You can proceed to pay online or pay at the centre</p>
                                         </div>
                                     </div>
                         </div>
@@ -98,12 +123,13 @@
 <!-- Modal -->
 <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="purchase" class="modal fade">
         <div class="modal-dialog">
-            <div  *ngIf="paystack" class="modal-content">
+            <div  class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <p>You are about to make payment for Vending Pin and Registration {{ amount}}</p>
+                    <p *ngIf="button">You are about to make payment for JAMB Registration N {{amount}}</p>
+                    <p *ngIf="submit" class="alert alert-success">Your payment was successful, check your email for reciept</p>
                 </div>
                 <div class="modal-footer">
                     <angular4-paystack *ngIf="button"
@@ -121,6 +147,7 @@
             </div>
         </div>
     </div>
-    <!-- modal -->
+
+
     </section>
     

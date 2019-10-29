@@ -32,6 +32,11 @@ export class HomeComponent implements OnInit {
     items: 5, 
     dots: false, 
     nav: false,
+    auto: true,
+    loop: true,
+    autoplay:true,
+    autoPlaySpeed:5000,
+    autoPlayTimeout:5000,
     responsive: {
       0: {
         items: 1,
@@ -58,7 +63,19 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+    this.movingHand();
+  }
+  movingHand(){
+    const hand = document.getElementById('hand');
+    if(hand !== null){
+        let i = 0;
+        const img = ['tap.svg', 'tap1.svg', 'tap2.svg', 'tap1.svg'];
+        setInterval(()=>{
+            i>=img.length?i=0:i=i;
+            hand.style.backgroundImage   = "url('../../../assets/"+img[i]+"')";
+            i++;
+        },1300)
+    }
   }
   post(){
     return this.serve.getPost().subscribe((post)=>{

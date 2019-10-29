@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ServiceService } from 'src/app/service.service';
-import { Service } from 'src/app/service.interface';
 import { TransactionService } from 'src/app/transaction.service';
 @Component({
   selector: 'app-services',
@@ -26,6 +25,8 @@ export class ServicesComponent implements OnInit {
   @Input() email:string;
   @Input() amount:number;
   key = this.trans.key;
+  submitted = false;
+  status = false;
 
   form:any;
 
@@ -39,7 +40,8 @@ export class ServicesComponent implements OnInit {
 
   //To save purchase service details
   sendTransaction(){
-    let addi
+    let addi;
+    this.status = true;
     if(this.add.length>1){
       var last = this.add.pop();
        addi = this.add.join(', ') + " and "+last + " services";
@@ -62,6 +64,8 @@ export class ServicesComponent implements OnInit {
       this.paystack = true;
       this.transactionRef= data['transaction']['ref'];
       this.message = data['status'];
+      this.submitted = false;
+      this.status = false;
     })
   }
 
@@ -99,4 +103,5 @@ export class ServicesComponent implements OnInit {
   paymentCancel(){
     this.features = false;
   }
+
   }

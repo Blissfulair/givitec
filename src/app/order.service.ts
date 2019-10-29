@@ -8,6 +8,6 @@ export class OrderService {
 
   constructor(private http : HttpClient) { }
   makeOrder(body){
-    return this.http.post('http://127.0.0.1:8000/api/order', body);
+    return this.http.post('https://www.givitec.com/app/api/order', body);
   }
 }

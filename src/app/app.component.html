@@ -1,30 +1,17 @@
 <div class="site">
   <header>
-      <div class="header-wrap">
-          <!-- <div id="logo">
-              <a href="#">
-                  <img src="assets/givitec.png" alt="">
-                  <span>Givitec</span>
-              </a>
-          </div>
-          <nav>
-              <ul>
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">Service</a></li>
-                  <li><a href="#">Portfolio</a></li>
-                  <li><a href="#">About</a></li>
-                  <li><a href="#">Hire Us</a></li>
-              </ul>
-          </nav> -->
+      <div class="header-wrap" id="head">
           <nav class="navbar navbar-expand-md fixed-top scrolling-navbar bg-white">
               <div class="container">        
-                      <a class="navbar-brand" routerLink="" >
-                              <img src="assets/givitec.png" alt="">
-                              <span>Givitec</span>
+                      <a class="navbar-brand page-scroll" routerLink="" data-href="#home">
+                              <img src="assets/givitec.png" alt="Givitec Logo">
+                              <span>GIVITEC</span>
                       </a>
-                <button class="navbar-toggler open" type="button" aria-label="Toggle navigation">
-                  <i class="lni-menu"></i>
-                </button>
+                <div class="menu-btn open">
+                  <div class="btn-line"></div>
+                  <div class="btn-line"></div>
+                  <div class="btn-line"></div>
+                </div>
                 <div class="collapse navbar-collapse">
                   <ul class="navbar-nav mr-auto w-100 justify-content-end">
                     <li class="nav-item">
@@ -49,12 +36,13 @@
       
       </div>
       <div class="mobile-menu">
-        <button class="navbar-toggler close">
-            Close
-            <i class="lni-menu"></i>
-          </button>
-          <div>
-            <ul class="">
+            <div class="menu-btn close">
+              <div class="btn-line"></div>
+              <div class="btn-line"></div>
+              <div class="btn-line"></div>
+            </div>
+          <div class="nav-side">
+            <ul>
               <li class="mobile-item">
                 <a class="mobile-link page-scroll" routerLink=""   data-href="#home">Home</a>
               </li>
@@ -68,7 +56,7 @@
                 <a class="mobile-link page-scroll" routerLink="" data-href="#about">About</a>
               </li>  
               <li class="mobile-item">
-                <a class="mobile-link page-scroll" routerLink="request">Hire Us</a>
+                <a class="mobile-link page-scroll" data-href="#request"  routerLink="request">HIRE US</a>
               </li>  
             </ul>              
           </div>
@@ -79,9 +67,9 @@
 
 
 <router-outlet></router-outlet>
-<footer>
+<footer id="footer">
   <div class="container">
-      <a id="top" class="page-scroll" data-href="#home">
+      <a id="top" class="page-scroll" data-href="#head">
           <div></div>
       </a>
       <div class="footer-items">
@@ -93,7 +81,7 @@
                       <li><a routerLink="services">Company</a></li>
                       <li><a href="#">Training</a></li>
                       <li><a routerLink="careers" class="page-scroll" data-href="#careers">Careers</a></li>
-                      <li><a routerLink="jamb-registration" class="page-scroll" data-href="#services">Jamb Form</a></li>
+                      <li><a routerLink="utme" class="page-scroll" data-href="#services">UTME Forms</a></li>
                   </ul>
               </div>
               <div class="col-md-3">
@@ -109,11 +97,11 @@
               <div class="col-md-4">
                   <h3>Affiliates</h3>
                   <ul>
-                      <li><a href="#">Apex Tutorials</a></li>
-                      <li><a href="#">Givitours</a></li>
-                      <li><a href="#">Grace Pavilion Event Centre</a></li>
-                      <li><a href="#">The Pedagogues Publishing</a></li>
-                      <li><a href="#">The Pedagogues Educonsult</a></li>
+                      <li><a href="#">APEX TUTORIALS</a></li>
+                      <li><a href="#">GIVITOURS</a></li>
+                      <li><a href="#">GIMOX & GOSHEN RESOURCES LTD</a></li>
+                      <li><a href="#">THE PEDAGOGUES PUBLISHING</a></li>
+                      <li><a href="#">THE PEDAGOGUES EDUCONSULT</a></li>
                   </ul>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3">
@@ -133,27 +121,30 @@
                           </div>
                       </div>
                   </div>
-                  <div class="row sicons justify-content-center">
-                      <div class="col-md-4 col-sm-4 col-xs-4 col-lg-4">
-                          <a href="">
-                              <div class="sicon"><img src="assets/facebook.svg" alt=""></div>
+                  <div class="row justify-content-center">
+                      <ul class="sicons">
+                        <li class="sicon" target="_blank" title="Facebook">
+                          <a href="https://www.facebook.com/givitecltd">
+                            <span class="icon-facebook"></span>
                           </a>
-                      </div>
-                      <div class="col-md-4 col-sm-4 col-xs-4 col-lg-4">
-                          <a href="">
-                              <div class="sicon"><img src="assets/twitter.svg" alt=""></div>
-                          </a>
-                      </div>
-                      <div class="col-md-4 col-sm-4 col-xs-4 col-lg-4">
-                          <a href="">
-                              <div class="sicon"><img src="assets/instagram.svg" alt=""></div>
-                          </a>
-                      </div>
+                        </li>
+                        <li class="sicon" target="_blank" title="Twitter">
+                            <a href="https://www.twitter.com/givitecworld">
+                                <span class="icon-twitter"></span>
+                            </a>
+                        </li>
+                          <li class="sicon" target="_blank" title="Instagram">
+                              <a href="https://www.instagram.com/givitecltd">
+                                <span class="icon-instagram"></span>
+                              </a>
+                          </li>
+                      </ul>
                   </div>
               </div>
+              <a href="#" style="z-index: 9999999;">&copy; 2019, GIVITEC LTD. All Rights Reserved.</a>
           </div>
       </div>
-      <a href="#" style="padding-top: 10px">&copy; Copyright 2019. Givitec ltd All Right Reserved.</a>
+
   </div>
 </footer>
 </main>
