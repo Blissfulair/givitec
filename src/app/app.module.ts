@@ -21,6 +21,7 @@ import { OrderService } from './order.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { Angular4PaystackModule } from 'angular4-paystack';
 import { JambComponent } from './services/jamb/jamb.component';
+import { MockComponent } from './mock/mock.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { JambComponent } from './services/jamb/jamb.component';
     NetworkingComponent,
     WebComponent,
     CareerComponent,
-    JambComponent
+    JambComponent,
+    MockComponent
   ],
   imports: [
     BrowserModule,

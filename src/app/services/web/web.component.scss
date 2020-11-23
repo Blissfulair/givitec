@@ -46,6 +46,30 @@
     // border-radius: 0 100px 150px 0;
      background: url(../../../assets/Silver.svg) no-repeat bottom center/cover;
 }
+.bonanza::before{
+    position: absolute;
+    content: "";
+    top: -5px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 100;
+    // background: linear-gradient(270deg, #f1421b 0%, #f6ab52 100%);
+    // border-radius: 0 100px 150px 0;
+     background: url(../../../assets/bonanza.svg) no-repeat bottom center/cover;
+}
+.custom::before{
+    position: absolute;
+    content: "";
+    top: -5px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 100;
+    // background: linear-gradient(270deg, #f1421b 0%, #f6ab52 100%);
+    // border-radius: 0 100px 150px 0;
+     background: url(../../../assets/custom.svg) no-repeat bottom center/cover;
+}
 .gold::before{
     position: absolute;
     content: "";
@@ -81,6 +105,13 @@
     font-weight: 700;
     position: relative;
 }
+.package-inner p{
+    font-size: 0.9rem;
+    text-align: left;
+    margin-left: 10px;
+    font-weight: 700;
+    position: relative;
+}
 .package-inner li strong {
     font-size: 1.2rem;
     font-weight: 700;
@@ -101,6 +132,10 @@
 }
 .silver .package-inner .package-inner-items ul li:last-child::after{
     background: linear-gradient(270deg, #fa6041 0%, #f8ae0d 100%);
+}
+
+.bonanza .package-inner .package-inner-items ul li:last-child::after{
+    background: linear-gradient(270deg, #fa6041 0%, #4c39a4 100%);
 }
 .gold .package-inner .package-inner-items ul li:last-child::after{
     background: linear-gradient(270deg, #22b573 0%, #7fdab1 100%);
@@ -136,14 +171,17 @@
     .package-inner-items ul{
         margin-top: 35px;
     }
-    .silver::before, .gold::before, .diamond::before{
+    .silver::before, .gold::before, .diamond::before,.bonanza::before, .custom::before{
         background: none;
   
     }
-   .silver .package-inner h2, .gold .package-inner h2, .diamond .package-inner h2{
+   .silver .package-inner h2,.custom .package-inner h2, .gold .package-inner h2, .diamond .package-inner h2,.bonanza .package-inner h2{
         display: flex;
         justify-content: center;
         margin-top: 11%;
+    }
+    .bonanza .package-inner h2{
+        color: linear-gradient(270deg, #fa6041 0%, #4c39a4 100%);
     }
     .silver .package-inner h2{
         color: #f87c46;

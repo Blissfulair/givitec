@@ -9,7 +9,9 @@ import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 })
 export class ServiceService {
   form : FormGroup;
+  mockForm : FormGroup;
   public url = 'https://www.givitec.com/app';
+  //public url = 'http://127.0.0.1:8000';
   constructor(private http : HttpClient, private fb : FormBuilder) {
     this.form = this.fb.group({
       reg_no:[''],
@@ -33,6 +35,9 @@ export class ServiceService {
       third_choice_inst:['', Validators.required],
       third_choice_course:['', Validators.required]
     })
+    this.mockForm = this.fb.group({
+      reg_no:['']
+    })
   }
   saveRegistrationData(body){
     return this.http.post(this.url+'/api/jamb_registration',body);
@@ -51,6 +56,10 @@ export class ServiceService {
   }
   getServiceDelete(id:number){
     return this.http.delete(this.url+'/api/service/delete/'+id
+    );
+  }
+  getMockResult(reg_no:number){
+    return this.http.get(this.url+'/api/mock/'+reg_no
     );
   }
 

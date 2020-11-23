@@ -10,7 +10,8 @@ import { NetworkingComponent } from "./services/networking/networking.component"
 import { WebComponent } from "./services/web/web.component";
 import { CbtComponent } from "./services/cbt/cbt.component";
 import { CareerComponent } from "./career/career.component";
-import { JambComponent } from "./services/jamb/jamb.component"
+import { JambComponent } from "./services/jamb/jamb.component";
+import { MockComponent } from "./mock/mock.component";
 
 const routes: Routes = [
   {
@@ -56,6 +57,10 @@ const routes: Routes = [
   {
     path:'utme',
     component:JambComponent
+  },
+  {
+    path:'mockresult',
+    component:MockComponent
   }
 ];
 
