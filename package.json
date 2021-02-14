@@ -22,7 +22,7 @@
     "@ng-bootstrap/ng-bootstrap": "^5.2.1",
     "angular4-paystack": "^2.4.0",
     "bootstrap": "^4.4.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ngx-owl-carousel": "^2.0.7",
     "owl.carousel": "^2.3.4",
     "rxjs": "~6.4.0",
